@@ -47,16 +47,16 @@ export class Server extends Router {
      */
     listen(
         port: number,
-        callback?: (listen_socket: uWebsockets.us_listen_socket) => void
+        callback?: (listen_socket: uWebsockets.us_listen_socket) => void,
     ): Promise<uWebsockets.us_listen_socket>;
     listen(
         port: number,
         host?: string,
-        callback?: (listen_socket: uWebsockets.us_listen_socket) => void
+        callback?: (listen_socket: uWebsockets.us_listen_socket) => void,
     ): Promise<uWebsockets.us_listen_socket>;
     listen(
         unix_path: string,
-        callback?: (listen_socket: uWebsockets.us_listen_socket) => void
+        callback?: (listen_socket: uWebsockets.us_listen_socket) => void,
     ): Promise<uWebsockets.us_listen_socket>;
 
     /**

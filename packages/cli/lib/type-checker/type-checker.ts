@@ -45,8 +45,8 @@ export class TypeCheckerHost {
       console.log(
         ts.formatDiagnosticsWithColorAndContext(
           diagnostics,
-          formatDiagnosticsHost
-        )
+          formatDiagnosticsHost,
+        ),
       );
       process.exit(1);
     }
@@ -56,21 +56,21 @@ export class TypeCheckerHost {
   runInWatchMode(
     tsConfigPath: string,
     tsConfig: Record<string, any>,
-    options?: TypeCheckerOptions
+    options?: TypeCheckerOptions,
   ) {
     let watchProgram: ts.WatchOfConfigFile<ts.BuilderProgram> | undefined =
       undefined;
 
     const origDiagnosticReporter = (ts as any).createDiagnosticReporter(
       ts.sys,
-      true
+      true,
     );
 
     const callBack = (
       diagnostic: ts.Diagnostic,
       newLine: string,
       compilerOptions: ts.CompilerOptions,
-      errorCount?: number
+      errorCount?: number,
     ) => {
       errorCount = errorCount || 0;
 
@@ -97,7 +97,7 @@ export class TypeCheckerHost {
       ts.sys,
       undefined,
       origDiagnosticReporter,
-      callBack
+      callBack,
     );
 
     watchProgram = ts.createWatchProgram(host);

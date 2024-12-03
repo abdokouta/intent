@@ -5,7 +5,7 @@ import { ExtraOptions } from "../interfaces";
 export const defaultSwcOptionsFactory = (
   tsOptions: Record<string, any>,
   configuration: ConfigurationInterface,
-  extras: ExtraOptions
+  extras: ExtraOptions,
 ): Options => {
   return {
     sourceMaps:

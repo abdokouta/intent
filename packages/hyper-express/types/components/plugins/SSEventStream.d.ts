@@ -1,7 +1,7 @@
-import { Response } from "../http/Response";
+import { Response } from '../http/Response';
 
 export class SSEventStream {
-    constructor(response: Response)
+    constructor(response: Response);
 
     /**
      * Opens the "Server-Sent Events" connection to the client.

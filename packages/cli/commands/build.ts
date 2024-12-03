@@ -33,7 +33,7 @@ export class BuildCommand {
     const swcOptions = defaultSwcOptionsFactory(
       tsConfig,
       intentFileConfig,
-      extraOptions
+      extraOptions,
     );
 
     await this.swcFileTransformer.run(tsConfigPath, swcOptions, extraOptions);

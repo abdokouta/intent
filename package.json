@@ -1,20 +1,16 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "integrations/*"
-  ],
   "scripts": {
-    "build": "npx lerna run build",
-    "format": "npx lerna run format",
-    "lint": "npx lerna run lint",
-    "format:check": "npx lerna run format:check",
-    "lint:check": "npx lerna run lint:check",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "dev:core": "bun run dev -w packages/core",
+    "dev:sample-app": "bun run dev -w integrations/sample-app",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:check": "turbo format:check",
+    "lint": "turbo lint",
+    "lint:check": "turbo lint:check",
     "packages:clean": "tsc -b --clean packages",
-    "dev": "concurrently \"npm run dev:core\" \"npm run dev:sample-app\" --names \"@intentjs/core,sample-app\" --prefix-colors \"blue,green\"",
-    "dev:core": "npm run dev -w packages/core",
-    "dev:sample-app": "npm run dev -w integrations/sample-app",
     "prepare": "husky"
   },
   "dependencies": {
@@ -27,5 +23,13 @@
     "@commitlint/config-conventional": "^19.5.0",
     "husky": "^9.1.6",
     "lerna": "^8.1.8"
-  }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "bun@1.1.24",
+  "workspaces": [
+    "packages/*",
+    "integrations/*"
+  ]
 }

@@ -88,7 +88,7 @@ export class Response<Locals = DefaultResponseLocals> extends Writable {
         value: string | null,
         expiry?: number,
         options?: CookieOptions,
-        sign_cookie?: boolean
+        sign_cookie?: boolean,
     ): Response;
 
     /**

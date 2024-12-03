@@ -164,26 +164,26 @@ $ sh scripts/setup.sh
 
 This will initialise some necessary files, run a build, link the binaries.
 
-3. Now get the project running using the `npm run dev` command.
+3. Now get the project running using the `bun run dev` command.
 
 ```bash
-$ npm run dev
+$ bun run dev
 ```
 
 ### <a name="common-scripts"></a>Commonly used NPM scripts
 
 ```bash
 # run the integration apps and packages locally
-$ npm run dev
+$ bun run dev
 
 # Build the project
-npm run build
+bun run build
 
 # run the full unit tests suite
-$ npm run test
+$ bun run test
 
 # run linter
-$ npm run lint
+$ bun run lint
 ```
 
 ## <a name="rules"></a> Coding Rules
@@ -196,7 +196,7 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 - All features or bug fixes **must be tested** by one or more specs (unit-tests).
 - We follow [Google's JavaScript Style Guide][js-style-guide], but wrap all code at
-  **100 characters**. An automated formatter is available (`npm run format`).
+  **100 characters**. An automated formatter is available (`bun run format`).
 
 ## <a name="commit"></a> Commit Message Guidelines
 

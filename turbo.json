@@ -1,0 +1,85 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "daemon": true,
+  "cacheDir": ".turbo/cache",
+  "globalEnv": [
+    "NODE_ENV",
+    "PORT",
+    "DEPLOY_ENV"
+  ],
+  "globalDependencies": [
+    "**/*.env",
+    "turbo.json",
+    ".prettierrc"
+  ],
+  "remoteCache": {
+    "enabled": true,
+    "signature": false,
+    "apiUrl": "https://vercel.com/api"
+  },
+  "tasks": {
+    "build": {
+      "inputs": [
+        ".env*",
+        "$TURBO_DEFAULT$",
+        "!packages/cli/**",
+        "!packages/hyper-express/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "public/**",
+        "dist/**",
+        "build/**"
+      ],
+      "env": [
+        "NODE_ENV"
+      ]
+    },
+    "dev": {
+      "inputs": [
+        "!packages/cli/**",
+        "!packages/hyper-express/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": false,
+      "persistent": false
+    },
+    "serve": {
+      "dependsOn": [
+        "build"
+      ],
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "test": {
+      "dependsOn": [],
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "clean": {
+      "cache": false
+    },
+    "//start": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": [
+        "^dev"
+      ]
+    }
+  }
+}

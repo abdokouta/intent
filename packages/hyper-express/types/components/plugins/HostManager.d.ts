@@ -1,11 +1,11 @@
 import { EventEmitter } from 'events';
 
 interface HostOptions {
-    passphrase?: string,
-    cert_file_name?: string,
-    key_file_name?: string,
-    dh_params_file_name?: string,
-    ssl_prefer_low_memory_usage?: boolean,
+    passphrase?: string;
+    cert_file_name?: string;
+    key_file_name?: string;
+    dh_params_file_name?: string;
+    ssl_prefer_low_memory_usage?: boolean;
 }
 
 export class HostManager extends EventEmitter {
@@ -26,11 +26,11 @@ export class HostManager extends EventEmitter {
      */
     remove(hostname: string): HostManager;
 
-        /* HostManager Getters & Properties */
+    /* HostManager Getters & Properties */
 
     /**
      * Returns all of the registered hostname options.
      * @returns {Object.<string, HostOptions>}
      */
-    get registered(): {[hostname: string]: HostOptions};
+    get registered(): { [hostname: string]: HostOptions };
 }

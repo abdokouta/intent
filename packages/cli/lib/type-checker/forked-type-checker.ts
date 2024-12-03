@@ -19,8 +19,8 @@ export class ForkedTypeCheckerHost {
       console.log(
         ts.formatDiagnosticsWithColorAndContext(
           diagnostics,
-          formatDiagnosticsHost
-        )
+          formatDiagnosticsHost,
+        ),
       );
     };
 

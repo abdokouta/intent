@@ -13,7 +13,7 @@ export class TsConfigLoader {
     const parsedCmd = ts.getParsedCommandLineOfConfigFile(
       configPath,
       undefined!,
-      ts.sys as unknown as ts.ParseConfigFileHost
+      ts.sys as unknown as ts.ParseConfigFileHost,
     );
     const { options, fileNames, projectReferences } = parsedCmd!;
     return { options, fileNames, projectReferences };
@@ -26,7 +26,7 @@ export class TsConfigLoader {
     const parsedConfig = ts.parseJsonConfigFileContent(
       configFile.config,
       ts.sys,
-      dirname(configPath)
+      dirname(configPath),
     );
 
     return {
@@ -46,13 +46,13 @@ export class TsConfigLoader {
       const configPath = ts.findConfigFile(
         process.cwd(),
         ts.sys.fileExists,
-        tsConfigFile
+        tsConfigFile,
       ) as string;
 
       if (!configPath) {
         console.log(
           INTENT_LOG_PREFIX,
-          pc.red(NO_TSCONFIG_FOUND(`\`${tsConfigFile}\``))
+          pc.red(NO_TSCONFIG_FOUND(`\`${tsConfigFile}\``)),
         );
         process.exit();
       }

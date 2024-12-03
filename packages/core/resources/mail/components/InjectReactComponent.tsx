@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { CodeBlock, dracula } from "@react-email/code-block";
-import { Section } from "@react-email/components";
+import { CodeBlock, dracula } from '@react-email/code-block';
+import { Section } from '@react-email/components';
 
 export const InjectReactComponent = ({ ...props }) => {
   return (

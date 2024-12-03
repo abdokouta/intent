@@ -18,7 +18,7 @@ router.all(
     },
     async (request, response) => {
         const body = await request.json();
-    }
+    },
 );
 
 const middleware = (request: Request, response: Response, next: MiddlewareNext) => {};
@@ -33,7 +33,7 @@ router.connect(
     },
     async (request, response) => {
         const body = await request.json();
-    }
+    },
 );
 
 // Pattern + options + 4 Middlewares + Handler
@@ -51,7 +51,7 @@ router.post(
     },
     async (request, response) => {
         const body = await request.json();
-    }
+    },
 );
 
 // Pattern + 4 Middlewares (Array) + Handler
@@ -68,7 +68,7 @@ router.put(
     ],
     async (request, response) => {
         const body = await request.json();
-    }
+    },
 );
 
 // Pattern + options + 4 Middlewares (Array) + Handler
@@ -88,7 +88,7 @@ router.delete(
     ],
     async (request, response) => {
         const body = await request.json();
-    }
+    },
 );
 
 // Handler
@@ -106,7 +106,7 @@ router
         },
         async (request, response) => {
             const body = await request.json();
-        }
+        },
     )
     .delete(
         {
@@ -116,7 +116,7 @@ router
         [middleware, middleware],
         async (request, response) => {
             const body = await request.json();
-        }
+        },
     );
 
 // Ensures router usage is valid in all possible forms

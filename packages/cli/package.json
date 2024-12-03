@@ -21,9 +21,9 @@
     "intent": "bin/intent.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "dev": "tsc --watch",
-    "prepublish:npm": "npm run build",
+    "prepublish:npm": "bun run build",
     "publish:npm": "npm publish --access public"
   },
   "dependencies": {

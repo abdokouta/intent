@@ -43,27 +43,27 @@ export class StartServerCommand {
     const swcOptions = defaultSwcOptionsFactory(
       tsConfig,
       intentFileConfig,
-      extraOptions
+      extraOptions,
     );
 
     const onSuccessHook = this.createOnSuccessHook(
       intentFileConfig,
       tsConfig.compilerOptions,
-      extraOptions
+      extraOptions,
     );
 
     await this.swcFileTransformer.run(
       tsConfigPath,
       swcOptions,
       extraOptions,
-      onSuccessHook
+      onSuccessHook,
     );
   }
 
   private createOnSuccessHook(
     intentConfiguration: ConfigurationInterface,
     tsOptions: ts.CompilerOptions,
-    extraOptions: ExtraOptions
+    extraOptions: ExtraOptions,
   ) {
     let childProcessRef: any;
     process.on("exit", () => {
@@ -80,7 +80,7 @@ export class StartServerCommand {
             extraOptions.debug,
             tsOptions.outDir as string,
             "node",
-            extraOptions
+            extraOptions,
           );
           childProcessRef.on("exit", () => (childProcessRef = undefined));
         });
@@ -93,7 +93,7 @@ export class StartServerCommand {
           extraOptions.debug,
           tsOptions.outDir as string,
           "node",
-          extraOptions
+          extraOptions,
         );
         childProcessRef.on("exit", (code: number) => {
           process.exitCode = code;
@@ -109,7 +109,7 @@ export class StartServerCommand {
     debug: boolean | string | undefined,
     outDirName: string,
     binaryToRun: string,
-    extraOptions: ExtraOptions
+    extraOptions: ExtraOptions,
   ) {
     let outputFilePath = join(outDirName, sourceRoot, serverFile);
     if (!existsSync(outputFilePath + ".js")) {

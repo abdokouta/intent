@@ -15,11 +15,11 @@ program
   .option("-d, --debug [hostport] ", "Run in debug mode (with --inspect flag).")
   .option(
     "-dtc, --disable-type-check",
-    "Disable type checking. Enabled by default"
+    "Disable type checking. Enabled by default",
   )
   .option(
     "--preserveWatchOutput",
-    'Use "preserveWatchOutput" option when using tsc watch mode.'
+    'Use "preserveWatchOutput" option when using tsc watch mode.',
   )
   .action((str, options) => {
     const command = new StartServerCommand();
@@ -34,7 +34,7 @@ program
   .option("-d, --debug [hostport] ", "Run in debug mode (with --inspect flag).")
   .option(
     "-dtc, --disable-type-check",
-    "Disable type checking. Enabled by default"
+    "Disable type checking. Enabled by default",
   )
   .action((str) => {
     const buildCommand = new BuildCommand();

@@ -1,12 +1,12 @@
 import * as uWebsockets from 'uWebSockets.js';
-import { EventEmitter } from "events";
+import { EventEmitter } from 'events';
 import { Readable, Writable } from 'stream';
 import TypedEmitter from 'typed-emitter';
-import { SendableData } from "../http/Response";
+import { SendableData } from '../http/Response';
 
 export type WebsocketContext = {
-    [key: string]: string
-}
+    [key: string]: string;
+};
 
 type Events = {
     message: (...args: any[]) => void | Promise<void>;
@@ -14,7 +14,7 @@ type Events = {
     drain: (...args: any[]) => void | Promise<void>;
     ping: (...args: any[]) => void | Promise<void>;
     pong: (...args: any[]) => void | Promise<void>;
-}
+};
 
 export class Websocket<TUserData = unknown> extends (EventEmitter as new () => TypedEmitter<Events>) {
     /**

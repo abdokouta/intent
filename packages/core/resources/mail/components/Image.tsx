@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Img } from "@react-email/components";
+import * as React from 'react';
+import { Img } from '@react-email/components';
 
-export const Image = (props) => {
+export const Image = props => {
   return (
     <Img
       className="my-2 rounded-md overflow-hidden"

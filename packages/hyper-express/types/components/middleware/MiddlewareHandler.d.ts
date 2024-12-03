@@ -6,5 +6,5 @@ export type MiddlewarePromise = Promise<Error | any>;
 export type MiddlewareHandler = (
     request: Request<DefaultRequestLocals>,
     response: Response<DefaultResponseLocals>,
-    next: MiddlewareNext
+    next: MiddlewareNext,
 ) => MiddlewarePromise | any;

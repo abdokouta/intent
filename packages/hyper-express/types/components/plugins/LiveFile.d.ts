@@ -1,16 +1,16 @@
 import * as FileSystem from 'fs';
-import { EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 
 export interface LiveFileOptions {
-    path: string,
+    path: string;
     retry: {
-        every: number,
-        max: number
-    }
+        every: number;
+        max: number;
+    };
 }
 
 export class LiveFile extends EventEmitter {
-    constructor(options: LiveFileOptions)
+    constructor(options: LiveFileOptions);
 
     /**
      * Reloads buffer/content for file asynchronously with retry policy.
@@ -27,7 +27,7 @@ export class LiveFile extends EventEmitter {
      *
      * @returns {Promise}
      */
-    ready(): Promise<any>
+    ready(): Promise<any>;
 
     /* LiveFile Getters */
     get is_ready(): boolean;
